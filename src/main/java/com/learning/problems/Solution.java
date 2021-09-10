@@ -1,0 +1,8 @@
+package com.learning.problems;
+
+public class Solution {
+
+    public static int add(int a, int b) {
+       return a+b;
+    }
+}

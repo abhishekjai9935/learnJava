@@ -1,0 +1,18 @@
+Servers/
+settings.xml
+.metadata/
+.project
+bin/
+*.iml
+/target
+.idea/
+**/*/.DS_Store
+.classpath
+.settings/
+/src/main/resources/application-local.properties
+
+# Ignore the build directory
+/out
+
+# Compiled class file
+*.class
