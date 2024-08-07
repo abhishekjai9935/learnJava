@@ -178,5 +178,4 @@ class Dog {
 
 
 ##### Reference
-* https://drive.google.com/file/d/1vJr_-CJ7xCrikk0HrJjA0TITHALzRqa-/view
-* 
+* [Notes Link](https://drive.google.com/file/d/1vJr_-CJ7xCrikk0HrJjA0TITHALzRqa-/view)
