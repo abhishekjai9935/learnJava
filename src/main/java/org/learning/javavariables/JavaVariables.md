@@ -92,6 +92,9 @@ graph TD;
     byte-->short;
     short-->int;
     int-->long;
+    
+
+
 ```
 
 > e.g: 
@@ -104,4 +107,15 @@ graph TD;
 ### 2. Narrowing/Downcasting/Explicit Conversion
 - It is opposite of widening i.e. going from higher datatype to lower datatype
 - In this case downcasting doesn't happen automatically. So we have to manually do it.
+> e.g:
+> int integerVariable = 10
+> byte byteVariable = (byte) integerVariable;
+
+> If we are downcasting beyond rang ethen it'll again reset to -128 and it goes on.
+> So if integerVariable value is 128 then byteVariable's value will be -128 (Next after 127 is -128 for byte range)
+> If it's 148 then byteVariable's value will be -108
+
+
+![](screenshots/downcastingCompileTimeError.png "downcastingCompileTimeError")
+
 
