@@ -116,6 +116,75 @@ graph TD;
 > If it's 148 then byteVariable's value will be -108
 
 
-![](screenshots/downcastingCompileTimeError.png "downcastingCompileTimeError")
+!["downcastingCompileTimeError"](screenshots/downcastingCompileTimeError.png)
+
+### 3. Promoting during expression
+- This happens internally during expression
+- byte and short promotes to int
+- e.g: 
+```
+byte a = 1;
+byte b = 127;
+byte sum = a + b; //won't work since the value will be converted to int by default 
+This is known as implicit casting.
+
+But we can do like this:
+byte sum = (byte) (a+b);
+This is known as explicit casting.
+
+```
+
+### Kind of Variables
+
+#### Member / Instance Variable
+- These are the variables which are associated to instance of an object.
+- Whenever an object is created for that class these set of variables get initiated and each object has it's own copy.
+
+#### Local Variable
+- These variables are the variables that are defined inside a method.
+- If the method finishes , it gets destroyed.
+
+#### Static / Class variable
+- These variables are associated with class directly.
+- They are only created once for the class and are shared among all objects.
+
+
+#### Method Parameters
+- These are the variables that are passed for a method.
+
+#### Constructor Parameters
+- These are teh variables that are passed for a constructor.
+
+
+### Fractional Types
+
+```mermaid
+flowchart LR
+    A[1bit \n stores sign] --- B[8bit \n stores exponent] --- C[23bits \nstores mantissa]
+
+```
+
+Example:
+```
+4.125f
+Step 1: Convert to binary
+ 4 -> 100
+ .125 = .125 * 2 = 0.25 | 0
+        .25  * 2 = 0.5  | 0
+        .5   * 2 = 1    | 1
+        
+So, 0.125 = 001
+
+100.001
+1.00001 * 2^2
+
+Bias is 127 so E = 127 + 2 = 129
+So binary of 129 will be stored in exponent part (8 bits)
+10000001
+Mantissa will be part after decimal = 00001
+
+```
+
+
 
 
