@@ -5,7 +5,7 @@
 - Collection of instruction that performs a specific task.
 - It can be used to bring the code readability and re-usability. For e.g:
 
-```
+```java
  public class Calculation {
 
     public int sum(int val1, int val2) {
@@ -158,7 +158,7 @@ public class Calculation {
 ## Constructor Chaining
 - It means that we can call one constructor in other constructor. This is done using this() and super(). To chain a constructor withing the same class, this() is used.
   - For e.g:
-```
+```java
 public class Calculation {
   String name;
   int empID:
