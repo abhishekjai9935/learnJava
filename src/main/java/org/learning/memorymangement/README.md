@@ -188,4 +188,48 @@ graph TD
     subgraph Old Generation
     end
 ```
+> Now GC has run once. This whole process is called minor GC as it happens very periodically and very fast.
+Let's now create 2 more objects O6 and O7 So heap now looks like :
+```mermaid
+graph TD
+    subgraph Young Generation
+        subgraph EDEN
+          O6---O7  
+        end
+        subgraph S0
+          O1(O1 age-1)---O2(O2 age-1)
+          O2---O3(O3 age-1)
+        end
+        subgraph S1
+        end
+    end
+    subgraph Old Generation
+    end
+```
+> O6 and O7 are now created iin Eden. Now let's say the GC ran again and this time no reference is there for O4 and O7. So Now GC will now do the following:
+- Mark O4 and O7 
+- Deletes O4 and O7 
+- Moves O1, O6 and O7 (survivors) to S1 with corresponding ages 
+- Therefore, post this minor GC, the heap looks like:
+```mermaid
+graph TD
+    subgraph Young Generation
+        subgraph EDEN
+        end
+        subgraph S0
+        end
+        subgraph S1
+          O6(O3 age-1)---O3(O3 age-2)
+          O3(O3 age-2)---O1(O1 age-2)
+        end
+    end
+    subgraph Old Generation
+    end
+```
+
+> So at one time Eden would be completely free after the GC and one of the survivor space (S0 or S1 ) would be
+> free and we put data alternatively in S) and S1 along with respective age.
+
+
+
 
